@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website! This site showcases my work, projects, and skills in web development, design, and content creation.
 
-🚀 **Live Demo:** [your-live-site-link-here]([https://your-portfolio-link.com](https://vaibhav-raj-portfolio.vercel.app/))
+🚀 **Live Demo:** [view live now](https://vaibhav-raj-portfolio.vercel.app/)
 
 ---
 
@@ -28,12 +28,12 @@ Welcome to my personal portfolio website! This site showcases my work, projects,
 ---
 
 ## 📂 Folder Structure
-
-. ├── index.html
+```
+  ├── index.html
   ├── /image
   │ └── profile-img.jpg
   ├── /css
-
+```
 
 
 ---
