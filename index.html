@@ -1,724 +1,964 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaibhav Raj Portfolio</title>
+    <link rel="icon" href="image/profile-img.jpg" type="image/png" />
+    <meta name="description" content="Hi, I'm Vaibhav – a passionate web developer creating responsive websites, interactive UIs, and modern web experiences using HTML, CSS, and JavaScript." />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vaibhav Raj | Portfolio</title>
-  <link rel="stylesheet" href="main.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    @keyframes fadeInLeft {
-      from {
+    <style>
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(250px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(-250px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes rotatingBorder {
+        0% {
+          border-color: #ff0000;
+        }
+
+        25% {
+          border-color: #00ff00;
+        }
+
+        50% {
+          border-color: #fbff00;
+        }
+
+        75% {
+          border-color: #ff00ff;
+        }
+
+        100% {
+          border-color: #ff0000;
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideLeft {
+        from {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in-left,
+      .animate-fade-in-right,
+      .animate-bounce-in,
+      .animate-slide-left,
+      .animate-slide-up {
         opacity: 0;
-        transform: translateX(250px);
+        transition: opacity 0.5s ease-out;
       }
 
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(-250px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes rotatingBorder {
-      0% {
-        border-color: #ff0000;
-      }
-
-      25% {
-        border-color: #00ff00;
-      }
-
-      50% {
-        border-color: #fbff00;
-      }
-
-      75% {
-        border-color: #ff00ff;
-      }
-
-      100% {
-        border-color: #ff0000;
-      }
-    }
-
-    @keyframes bounceIn {
-      0% {
-        transform: scale(0.8);
-        opacity: 0;
-      }
-
-      100% {
-        transform: scale(1);
+      .animate-fade-in-left.visible {
+        animation: fadeInLeft 1.5s ease-out forwards;
         opacity: 1;
       }
-    }
 
-    @keyframes slideLeft {
-      from {
-        transform: translateX(-100px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
+      .animate-fade-in-right.visible {
+        animation: fadeInRight 1.5s ease-out forwards;
         opacity: 1;
       }
-    }
 
-    @keyframes slideUp {
-      from {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
+      .animate-bounce-in.visible {
+        animation: bounceIn 1s ease-out forwards;
         opacity: 1;
       }
-    }
 
-    .animate-fade-in-left,
-    .animate-fade-in-right,
-    .animate-bounce-in,
-    .animate-slide-left,
-    .animate-slide-up {
-      opacity: 0;
-      transition: opacity 0.5s ease-out;
-    }
+      .animate-slide-left.visible {
+        animation: slideLeft 1s ease-out forwards;
+        opacity: 1;
+      }
 
-    .animate-fade-in-left.visible {
-      animation: fadeInLeft 1.5s ease-out forwards;
-      opacity: 1;
-    }
+      .animate-slide-up.visible {
+        animation: slideUp 1s ease-out forwards;
+        opacity: 1;
+      }
 
-    .animate-fade-in-right.visible {
-      animation: fadeInRight 1.5s ease-out forwards;
-      opacity: 1;
-    }
+      .profile-circle {
+        border-radius: 50%;
+        border: 6px solid;
+        animation: rotatingBorder 4s infinite linear;
+        padding: 6px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        transition: transform 0.3s;
+      }
 
-    .animate-bounce-in.visible {
-      animation: bounceIn 1s ease-out forwards;
-      opacity: 1;
-    }
-
-    .animate-slide-left.visible {
-      animation: slideLeft 1s ease-out forwards;
-      opacity: 1;
-    }
-
-    .animate-slide-up.visible {
-      animation: slideUp 1s ease-out forwards;
-      opacity: 1;
-    }
-
-    .profile-circle {
-      border-radius: 50%;
-      border: 6px solid;
-      animation: rotatingBorder 4s infinite linear;
-      padding: 6px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-      transition: transform 0.3s;
-    }
-
-   /* .profile-circle:hover {
+      /* .profile-circle:hover {
       transform: scale(1.1);
     }*/
 
-    body.light-theme {
-      background-color: #f0f0f0;
-      color: #27282b;
-    }
+      body.light-theme {
+        background-color: #f0f0f0;
+        color: #27282b;
+      }
 
-    body.dark-theme {
-      background-color: #17202e;
-      color: #ffffff;
-    }
+      body.dark-theme {
+        background-color: #17202e;
+        color: #ffffff;
+      }
 
-    body.light-theme p {
-      color: #2e2e2e;
-    }
+      body.light-theme p {
+        color: #2e2e2e;
+      }
 
-    body.dark-theme p {
-      color: #ffffff;
-    }
+      body.dark-theme p {
+        color: #ffffff;
+      }
 
-    body.light-theme #website a,
-    body.light-theme #app a,
-    body.light-theme #contact a {
-      color: #0059ff;
-    }
+      body.light-theme #website a,
+      body.light-theme #app a,
+      body.light-theme #contact a {
+        color: #0059ff;
+      }
 
-    body.dark-theme #website a,
-    body.dark-theme #app a,
-    body.dark-theme #contact a {
-      color: #ff49f9;
-    }
+      body.dark-theme #website a,
+      body.dark-theme #app a,
+      body.dark-theme #contact a {
+        color: #ff49f9;
+      }
 
-    body.light-theme nav {
-      background-color: #f0f0f0;
-      color: #1e40af;
-    }
+      body.light-theme nav {
+        background-color: #f0f0f0;
+        color: #1e40af;
+      }
 
-    body.dark-theme nav {
-      background-color: #17202e;
-      color: #ffffff;
-    }
+      body.dark-theme nav {
+        background-color: #17202e;
+        color: #ffffff;
+      }
 
-    body.light-theme #work,
-    body.light-theme #website,
-    body.light-theme #app,
-    body.light-theme #design,
-    body.light-theme #contact,
-    body.light-theme #about,
-    body.light-theme #content,
-    body.light-theme #heroSection {
-      background-color: white;
-      color: #3a63e8;
-    }
+      body.light-theme #work,
+      body.light-theme #website,
+      body.light-theme #app,
+      body.light-theme #design,
+      body.light-theme #contact,
+      body.light-theme #about,
+      body.light-theme #content,
+      body.light-theme #heroSection {
+        background-color: white;
+        color: #3a63e8;
+      }
 
-    body.dark-theme #work,
-    body.dark-theme #website,
-    body.dark-theme #app,
-    body.dark-theme #design,
-    body.dark-theme #contact,
-    body.dark-theme #about,
-    body.dark-theme #content,
-    body.dark-theme #heroSection {
-      background-color: #252e3d;
-      color: #ffffff;
-    }
+      body.dark-theme #work,
+      body.dark-theme #website,
+      body.dark-theme #app,
+      body.dark-theme #design,
+      body.dark-theme #contact,
+      body.dark-theme #about,
+      body.dark-theme #content,
+      body.dark-theme #heroSection {
+        background-color: #252e3d;
+        color: #ffffff;
+      }
 
-    body.light-theme #work div div,
-    body.light-theme #website div div,
-    body.light-theme #app div div,
-    body.light-theme #design div div,
-    body.light-theme #content div div {
-      background-color: #f0f0f0;
-      color: #3a63e8;
-    }
+      body.light-theme #work div div,
+      body.light-theme #website div div,
+      body.light-theme #app div div,
+      body.light-theme #design div div,
+      body.light-theme #content div div {
+        background-color: #f0f0f0;
+        color: #3a63e8;
+      }
 
-    body.dark-theme #work div div,
-    body.dark-theme #website div div,
-    body.dark-theme #app div div,
-    body.dark-theme #design div div,
-    body.dark-theme #content div div {
-      background-color: #2f394a;
-      color: #ffffff;
-    }
+      body.dark-theme #work div div,
+      body.dark-theme #website div div,
+      body.dark-theme #app div div,
+      body.dark-theme #design div div,
+      body.dark-theme #content div div {
+        background-color: #2f394a;
+        color: #ffffff;
+      }
 
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
 
-    .scrollbar-thin::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
+      .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
 
-    .scrollbar-thin::-webkit-scrollbar-track {
-      background: transparent;
-    }
+      .scrollbar-thin::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-    .scrollbar-thin::-webkit-scrollbar-thumb {
-      background-color: #a0aec0;
-      border-radius: 10px;
-    }
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background-color: #a0aec0;
+        border-radius: 10px;
+      }
 
-    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-      background-color: #718096;
-    }
-  </style>
-</head>
+      .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background-color: #718096;
+      }
+    </style>
+  </head>
 
-<body class="transition-colors duration-700">
-  <!-- Navbar -->
-  <nav
-    class="shadow-lg p-4 px-6 flex justify-between      w-[100vw] h-20 fixed top-0 z-50 bg-opacity-90 backdrop-blur-md transition-colors duration-700">
-    <div class="flex items-center space-x-4">
-      <span class="text-4xl font-extrabold font-serif italic tracking-wide">Vaibhav Raj</span>
-    </div>
-    <div class="hidden sm:flex space-x-4 items-center">
-      <a href="#about"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">Who
-        Am I?</a>
-      <a href="#work"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">What
-        I Do</a>
-      <a href="#contact"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">Let's
-        Talk</a>
-      <div class="theme-toggle-container">
-        <img id="" src="image/day.png" alt="Toggle Theme"
-          class="theme-icon cursor-pointer w-8 h-8 transition-transform duration-300" title="Toggle Theme" />
+  <body class="transition-colors duration-700">
+    <!-- Navbar -->
+    <nav
+      class="shadow-lg p-4 px-6 flex justify-between w-full h-20 fixed top-0 z-50 bg-opacity-90 backdrop-blur-md transition-colors duration-700"
+    >
+      <div class="flex items-center space-x-4">
+        <span class="text-4xl font-extrabold font-serif italic tracking-wide"
+          >Vaibhav Raj</span
+        >
       </div>
-    </div>
-    <div class="sm:hidden flex items-center space-x-4">
-      <button id="hamburger" class="text-fuchsia-600 focus:outline-none">
-        <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-      <div class="theme-toggle-container">
-        <img id="" src="image/day.png" alt="Toggle Theme"
-          class="theme-icon cursor-pointer w-8 h-8 transition-transform duration-300" title="Toggle Theme" />
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full bg-white shadow-lg z-40">
-    <div class="flex flex-col text-center space-y-4 p-4">
-      <a href="#about"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">Who
-        Am I?</a>
-      <a href="#work"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">What
-        I Do</a>
-      <a href="#contact"
-        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left">Let's
-        Talk</a>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section id="heroSection"
-    class="flex flex-col md:flex-row items-center text-center mx-auto p-6 md:p-20 mt-20 justify-around bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-lg animate-bounce-in">
-    <div class="animate-fade-in-left">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
-        Hi, I'm Vaibhav 👋
-      </h2>
-      <h5 class="text-lg md:text-xl text-white">
-        Website | App | Design | Content
-      </h5>
-      <a href="#contact"
-        class="mt-6 inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-orange-600 transition duration-300">Let's
-        Connect</a>
-    </div>
-    <div class="mt-6 md:mt-0 animate-fade-in-right">
-      <div class="profile-circle">
-        <img src="image/profile-img.jpg" alt="profile-img"
-          class="rounded-full h-40 md:h-56 w-40 md:w-56 shadow-lg object-cover" />
-      </div>
-    </div>
-  </section>
-
-  <!-- My Work Section -->
-  <section id="work" class="scroll-mt-20 scroll-smooth py-10 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-center animate-slide-up">
-      My Work
-    </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up">
-        <h4 class="font-bold text-xl md:text-2xl mb-2">
-          Website Development
-        </h4>
-        <p class="text-justify">
-          Building websites that connect, convert, and communicate — that’s
-          what I do. Whether it’s a personal blog, a business site, or a
-          custom solution, I design and develop with both user experience and
-          performance in mind.
-        </p>
-      </div>
-      <div class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up">
-        <h4 class="font-bold text-xl md:text-2xl mb-2">App Development</h4>
-        <p class="text-justify">
-          From UI to backend logic, I build mobile apps that are functional,
-          responsive, and optimized for performance. Using modern frameworks
-          and clean code practices, I ensure your app runs smoothly and
-          delivers real value.
-        </p>
-      </div>
-      <div class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up">
-        <h4 class="font-bold text-xl md:text-2xl mb-2">Canva Designing</h4>
-        <p class="text-justify">
-          Designing posters, banners, and business materials made for local
-          clients. I love crafting visual stories, whether it's through code,
-          design, or words. I bring creativity to everything I do.
-        </p>
-      </div>
-      <div class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up">
-        <h4 class="font-bold text-xl md:text-2xl mb-2">Content Creation</h4>
-        <p class="text-justify">
-          Whether it’s coding, concepts, or creativity — I turn lessons into
-          videos that make learning feel natural and fun.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- My Websites Section -->
-  <section id="website" class="py-6 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-      My Websites
-    </h3>
-    <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin">
-      <div class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <img src="image/TravelPlanerChatBot.png" alt="Travel Planer Chat Bot"
-          class="rounded-lg mb-2 w-full object-cover" />
-        <h4 class="font-bold text-xl mb-2">✈️ Travel Planer Chat Bot</h4>
-        <p class="text-justify">
-          Plan trips effortlessly with our AI-powered chatbot – get
-          personalized destinations, itineraries, and travel tips in seconds.
-          Just chat, pack, and go!
-          <a target="_blank" href="https://travel-planer-eight.vercel.app/" class="underline">view live now</a>
-        </p>
-      </div>
-      <div class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <img src="image/GiftGenieChatBot.png" alt="Gift Genie Chat Bot" class="rounded-lg mb-2 w-full object-cover" />
-        <h4 class="font-bold text-xl mb-2">🎁 Gift Genie Chat Bot</h4>
-        <p class="text-justify">
-          Stuck on what to gift? Just tell Gift Genie who it's for and the
-          occasion – and poof! perfect gift ideas appear like magic!
-          <a target="_blank" href="https://gift-geine-chatbot.vercel.app/" class="underline">view live now</a>
-        </p>
-      </div>
-      <div class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <img src="image/SkillIndiaDemo.png" alt="Skill India Demo" class="rounded-lg mb-2 w-full object-cover" />
-        <h4 class="font-bold text-xl mb-2">🛠️ Skill India Demo</h4>
-        <p class="text-justify">
-          Skill India Demo is a showcase project aligned with the Skill India
-          initiative, Using HTML, PHP, CSS, Javascript
-          <a target="_blank" href="https://github.com/anuragag26/Skill-India-Website-demo" class="underline">view repo.
-            now</a>
-          (team)
-        </p>
-      </div>
-      <div class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <img src="image/portfolio.png" alt="Portfolio" class="rounded-lg mb-2 w-full object-cover" />
-        <h4 class="font-bold text-xl mb-2">💼 Portfolio</h4>
-        <p class="text-justify">
-          A responsive portfolio site built with HTML, Tailwind CSS, and JavaScript to showcase my web development, design, and creative projects.
-          <a target="_blank" href="https://vaibhav-raj-portfolio.vercel.app/" class="underline">view live
-            now</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- My Apps Section -->
-  <section id="app" class="py-6 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-      My Apps
-    </h3>
-    <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin">
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[125%] rounded-lg overflow-hidden mb-2">
-          <img src="image/ProcessMonitoring.png" alt="Process Monitoring App"
-            class="absolute top-0 left-0 w-full h-full object-contain" />
+      <div class="hidden sm:flex space-x-4 items-center">
+        <a
+          href="#about"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >Who Am I?</a
+        >
+        <a
+          href="#work"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >What I Do</a
+        >
+        <a
+          href="#contact"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >Let's Talk</a
+        >
+        <div class="theme-toggle-container">
+          <img
+            id=""
+            src="image/day.png"
+            alt="Toggle Theme"
+            class="theme-icon cursor-pointer w-8 h-8 transition-transform duration-300"
+            title="Toggle Theme"
+          />
         </div>
-        <h4 class="font-bold text-xl mb-2">Process Monitor Software</h4>
-        <p class="text-justify">
-          Desktop tool track CPU, memory, and processes in real time, with
-          termination control and performance insights.
-          <a target="_blank" href="https://github.com/Vaibhav5860/Real-Time-Process-Monitor" class="underline">view
-            repo. now</a>
-        </p>
+      </div>
+      <div class="sm:hidden flex items-center space-x-4">
+        <button id="hamburger" class="text-fuchsia-600 focus:outline-none">
+          <svg
+            id="hamburger-icon"
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+        <div class="theme-toggle-container">
+          <img
+            id=""
+            src="image/day.png"
+            alt="Toggle Theme"
+            class="theme-icon cursor-pointer w-8 h-8 transition-transform duration-300"
+            title="Toggle Theme"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden fixed top-20 left-0 w-full bg-white shadow-lg z-40 overflow-x-hidden"
+    >
+      <div class="flex flex-col text-center space-y-4 p-4">
+        <a
+          href="#about"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >Who Am I?</a
+        >
+        <a
+          href="#work"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >What I Do</a
+        >
+        <a
+          href="#contact"
+          class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-full font-semibold transition duration-300 animate-slide-left"
+          >Let's Talk</a
+        >
       </div>
     </div>
-  </section>
 
-  <!-- My Designs Section -->
-  <section id="design" class="py-6 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-      My Designs
-    </h3>
-    <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scroll-smooth">
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/chalkboardCoffeeMenu.png" alt="Chalk Board Coffee Menu"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Chalk Board Coffee Menu</h4>
-        <p class=""></p>
+    <!-- Hero Section -->
+    <section
+      id="heroSection"
+      class="flex flex-col md:flex-row items-center text-center mx-auto p-6 md:p-20 mt-20 justify-around bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-lg animate-bounce-in"
+    >
+      <div class="animate-fade-in-left">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
+          Hi, I'm Vaibhav 👋
+        </h2>
+        <h5 class="text-lg md:text-xl text-white">
+          Website | App | Design | Content
+        </h5>
+        <a
+          href="#contact"
+          class="mt-6 inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-orange-600 transition duration-300"
+          >Let's Connect</a
+        >
       </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/CoffeeCafe.png" alt="Coffee Cafe Menu"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
+      <div class="mt-6 md:mt-0 animate-fade-in-right">
+        <div class="profile-circle">
+          <img
+            src="image/profile-img.jpg"
+            alt="profile-img"
+            class="rounded-full h-40 md:h-56 w-40 md:w-56 shadow-lg object-cover"
+          />
         </div>
-        <h4 class="font-bold text-xl mb-2">Coffee Cafe Menu</h4>
-        <p class=""></p>
       </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/WhiteBlackCafeMenu.png" alt="Black & white Menu"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Black & white Menu</h4>
-        <p class=""></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/hydraWater.png" alt="Water Brand Poster"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Water Brand Poster</h4>
-        <p class=" "></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/coffeeShop.png" alt="Coffee Shop Price List"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Coffee Shop Price List</h4>
-        <p class=""></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/nineMenue.png" alt="3 X 3 Grid Menu "
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">3 X 3 Grid Menu List</h4>
-        <p class=""></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/SimpleFoodMenu.jpg" alt="Shop Food Menu "
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Shop Food Menu List</h4>
-        <p class=""></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/narialNation.png" alt="Nariyal Nation Banner"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Nariyal Nation Banner</h4>
-        <p class=""></p>
-      </div>
-      <div
-        class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <div class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2">
-          <img src="image/samosaDelight.png" alt="Samosa Delight Banner"
-            class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <h4 class="font-bold text-xl mb-2">Samosa Delight Banner</h4>
-        <p class=""></p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- My Content Section -->
-  <section id="content" class="py-6 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-      My Content
-    </h3>
-    <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scroll-smooth">
-      <div class="p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?si=B9X9GXMtcHaZ-BjD&list=PLw2fgd5qgno1m_lqtpnaRfCfaiu3O0XzO"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-64 rounded-lg"></iframe>
-        <h4 class="font-bold text-xl mb-2">Analytical Skill Concepts</h4>
-        <p class="text-gray-700"></p>
-      </div>
-      <div class="p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up">
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?si=41iLPRAvEyfCdj1q&list=PLw2fgd5qgno1_y5BQjuH3tqLo798gjxxL"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-64 rounded-lg"></iframe>
-        <h4 class="font-bold text-xl mb-2">Analytical Skill Lectures</h4>
-        <p class="text-gray-700"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="scroll-mt-20 py-10 px-4 md:px-6 my-6 transition-colors duration-700">
-    <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-      Who Am I?
-    </h3>
-    <div class="max-w-4xl mx-auto space-y-4 text-lg text-justify">
-      <p class="animate-slide-up">
-        I am a passionate developer and designer with a knack for creating
-        beautiful and functional digital experiences. I love to explore new
-        technologies and push the boundaries of what’s possible.
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 0.2s">
-        With a background in web and app development, I have honed my skills
-        in various programming languages and frameworks. I believe in the
-        power of collaboration and am always eager to learn from others.
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 0.4s">
-        When I’m not coding, you can find me exploring the latest design
-        trends, creating content, or enjoying a good cup of coffee. I’m always
-        on the lookout for new challenges and opportunities to grow.
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 0.6s">
-        I am currently working on several exciting projects and am open to
-        freelance opportunities. If you’re interested in collaborating or just
-        want to chat, feel free to reach out!
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 0.8s">
-        I am also a YouTuber, where I share my knowledge and insights on
-        various topics related to technology, design, and development. Check
-        out my channel for tutorials, tips, and more!
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 1s">
-        I am also a team player and enjoy collaborating with others to create
-        amazing products. I believe that great things can be achieved when we
-        work together.
-      </p>
-      <p class="animate-slide-up" style="animation-delay: 1.2s">
-        I am always looking for new opportunities to grow and expand my skill
-        set. If you have a project in mind or just want to connect, feel free
-        to reach out!
-      </p>
-      <h4 class="font-semibold text-xl md:text-2xl mb-2 animate-slide-up" style="animation-delay: 1.4s">
-        Currently at:
-        <p class="font-normal text-base">
-          Lovely Professional University, Punjab
-        </p>
-        <p class="font-normal text-base">2nd year, CSE</p>
-      </h4>
-      <h4 class="font-semibold text-xl md:text-2xl animate-slide-up" style="animation-delay: 1.6s">
-        I am from:
-        <p class="font-normal text-base">Sasaram, Bihar</p>
-      </h4>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="scroll-mt-20 py-16 px-4 md:px-6 my-6 transition-colors duration-700">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up">
-        Get in Touch
+    <!-- My Work Section -->
+    <section
+      id="work"
+      class="scroll-mt-20 scroll-smooth py-10 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-bold mb-6 text-center animate-slide-up"
+      >
+        My Work
       </h3>
-      <p class="mb-4 text-center text-gray-700 animate-slide-up">
-        Want to collaborate or just say hi? Reach out!
-      </p>
-      <div class="space-y-2 text-center">
-        <p class="animate-slide-up">
-          <strong class=" ">LinkedIn: </strong>
-          <a href="https://linkedin.com/in/vaibhav5860" class="text-blue-500 hover:underline">Vaibhav Raj</a>
-        </p>
-        <p class="animate-slide-up">
-          <strong class=" ">GitHub: </strong>
-          <a href="https://github.com/Vaibhav5860" class="text-blue-500 hover:underline">Vaibhav Raj</a>
-        </p>
-        <p class="animate-slide-up">
-          <strong class=" ">Email: </strong><a href="mailto:5860vaibhav@gmail.com"
-            class="text-blue-500 hover:underline">5860vaibhav@gmail.com</a>
-        </p>
-        <p class="animate-slide-up">
-          <strong class=" ">WhatsApp: </strong>
-          <a href="https://wa.me/919708681252" class="text-blue-500 hover:underline">+91 9708681252</a>
-        </p>
-        <p class="animate-slide-up">
-          <strong class="">Instagram: </strong>
-          <a href="https://www.instagram.com/vaibhavraj23076" class="text-blue-500 hover:underline">vaibhavraj23076</a>
-        </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up"
+        >
+          <h4 class="font-bold text-xl md:text-2xl mb-2">
+            Website Development
+          </h4>
+          <p class="text-justify">
+            Building websites that connect, convert, and communicate — that’s
+            what I do. Whether it’s a personal blog, a business site, or a
+            custom solution, I design and develop with both user experience and
+            performance in mind.
+          </p>
+        </div>
+        <div
+          class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up"
+        >
+          <h4 class="font-bold text-xl md:text-2xl mb-2">App Development</h4>
+          <p class="text-justify">
+            From UI to backend logic, I build mobile apps that are functional,
+            responsive, and optimized for performance. Using modern frameworks
+            and clean code practices, I ensure your app runs smoothly and
+            delivers real value.
+          </p>
+        </div>
+        <div
+          class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up"
+        >
+          <h4 class="font-bold text-xl md:text-2xl mb-2">Canva Designing</h4>
+          <p class="text-justify">
+            Designing posters, banners, and business materials made for local
+            clients. I love crafting visual stories, whether it's through code,
+            design, or words. I bring creativity to everything I do.
+          </p>
+        </div>
+        <div
+          class="card-hover p-6 rounded-lg shadow-lg transition-all duration-300 animate-slide-up"
+        >
+          <h4 class="font-bold text-xl md:text-2xl mb-2">Content Creation</h4>
+          <p class="text-justify">
+            Whether it’s coding, concepts, or creativity — I turn lessons into
+            videos that make learning feel natural and fun.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="text-center py-6 text-sm text-gray-500 bg-gray-200 transition-colors duration-700">
-    © 2025 Vaibhav Raj. All rights reserved.
-  </footer>
+    <!-- My Websites Section -->
+    <section
+      id="website"
+      class="py-6 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+      >
+        My Websites
+      </h3>
+      <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin">
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <img
+            src="image/TravelPlanerChatBot.png"
+            alt="Travel Planer Chat Bot"
+            class="rounded-lg mb-2 w-full object-cover"
+          />
+          <h4 class="font-bold text-xl mb-2">✈️ Travel Planer Chat Bot</h4>
+          <p class="text-justify">
+            Plan trips effortlessly with our AI-powered chatbot – get
+            personalized destinations, itineraries, and travel tips in seconds.
+            Just chat, pack, and go!
+            <a
+              target="_blank"
+              href="https://travel-planer-eight.vercel.app/"
+              class="underline"
+              >view live now</a
+            >
+          </p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <img
+            src="image/GiftGenieChatBot.png"
+            alt="Gift Genie Chat Bot"
+            class="rounded-lg mb-2 w-full object-cover"
+          />
+          <h4 class="font-bold text-xl mb-2">🎁 Gift Genie Chat Bot</h4>
+          <p class="text-justify">
+            Stuck on what to gift? Just tell Gift Genie who it's for and the
+            occasion – and poof! perfect gift ideas appear like magic!
+            <a
+              target="_blank"
+              href="https://gift-geine-chatbot.vercel.app/"
+              class="underline"
+              >view live now</a
+            >
+          </p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <img
+            src="image/SkillIndiaDemo.png"
+            alt="Skill India Demo"
+            class="rounded-lg mb-2 w-full object-cover"
+          />
+          <h4 class="font-bold text-xl mb-2">🛠️ Skill India Demo</h4>
+          <p class="text-justify">
+            Skill India Demo is a showcase project aligned with the Skill India
+            initiative, Using HTML, PHP, CSS, Javascript
+            <a
+              target="_blank"
+              href="https://github.com/anuragag26/Skill-India-Website-demo"
+              class="underline"
+              >view repo. now</a
+            >
+            (team)
+          </p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <img
+            src="image/portfolio.png"
+            alt="Portfolio"
+            class="rounded-lg mb-2 w-full object-cover"
+          />
+          <h4 class="font-bold text-xl mb-2">💼 Portfolio</h4>
+          <p class="text-justify">
+            A responsive portfolio site built with HTML, Tailwind CSS, and
+            JavaScript to showcase my web development, design, and creative
+            projects.
+            <a
+              target="_blank"
+              href="https://vaibhav-raj-portfolio.vercel.app/"
+              class="underline"
+              >view live now</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    document
-      .getElementById("hamburger")
-      .addEventListener("click", function () {
-        const mobileMenu = document.getElementById("mobile-menu");
-        const hamburgerIcon = document.getElementById("hamburger-icon");
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          hamburgerIcon.innerHTML =
-            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
-        } else {
-          hamburgerIcon.innerHTML =
-            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-        }
-      });
-    const themeIcons = document.getElementsByClassName("theme-icon");
-    const body = document.body;
+    <!-- My Apps Section -->
+    <section
+      id="app"
+      class="py-6 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+      >
+        My Apps
+      </h3>
+      <div class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin">
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[125%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/ProcessMonitoring.png"
+              alt="Process Monitoring App"
+              class="absolute top-0 left-0 w-full h-full object-contain"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Process Monitor Software</h4>
+          <p class="text-justify">
+            Desktop tool track CPU, memory, and processes in real time, with
+            termination control and performance insights.
+            <a
+              target="_blank"
+              href="https://github.com/Vaibhav5860/Real-Time-Process-Monitor"
+              class="underline"
+              >view repo. now</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
 
-    // Set initial theme based on localStorage
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.remove("light-theme");
-      body.classList.add("dark-theme");
-      for (let icon of themeIcons) {
-        icon.src = "image/night.png";
-      }
-    } else {
-      body.classList.remove("dark-theme");
-      body.classList.add("light-theme");
-      for (let icon of themeIcons) {
-        icon.src = "image/day.png";
-      }
-    }
+    <!-- My Designs Section -->
+    <section
+      id="design"
+      class="py-6 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+      >
+        My Designs
+      </h3>
+      <div
+        class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scroll-smooth"
+      >
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/chalkboardCoffeeMenu.png"
+              alt="Chalk Board Coffee Menu"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Chalk Board Coffee Menu</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/CoffeeCafe.png"
+              alt="Coffee Cafe Menu"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Coffee Cafe Menu</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/WhiteBlackCafeMenu.png"
+              alt="Black & white Menu"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Black & white Menu</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/hydraWater.png"
+              alt="Water Brand Poster"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Water Brand Poster</h4>
+          <p class=" "></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/coffeeShop.png"
+              alt="Coffee Shop Price List"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Coffee Shop Price List</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/nineMenue.png"
+              alt="3 X 3 Grid Menu "
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">3 X 3 Grid Menu List</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/SimpleFoodMenu.jpg"
+              alt="Shop Food Menu "
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Shop Food Menu List</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/narialNation.png"
+              alt="Nariyal Nation Banner"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Nariyal Nation Banner</h4>
+          <p class=""></p>
+        </div>
+        <div
+          class="w-64 sm:w-72 p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <div
+            class="relative w-full pt-[133.33%] rounded-lg overflow-hidden mb-2"
+          >
+            <img
+              src="image/samosaDelight.png"
+              alt="Samosa Delight Banner"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+          <h4 class="font-bold text-xl mb-2">Samosa Delight Banner</h4>
+          <p class=""></p>
+        </div>
+      </div>
+    </section>
 
-    // Add click event listener to all icons
-    for (let icon of themeIcons) {
-      icon.addEventListener("click", () => {
-        if (body.classList.contains("light-theme")) {
-          body.classList.remove("light-theme");
-          body.classList.add("dark-theme");
-          for (let icon of themeIcons) {
-            icon.src = "image/night.png";
-          }
-          localStorage.setItem("theme", "dark");
-        } else {
-          body.classList.remove("dark-theme");
-          body.classList.add("light-theme");
-          for (let icon of themeIcons) {
-            icon.src = "image/day.png";
-          }
-          localStorage.setItem("theme", "light");
-        }
-      });
-    }
+    <!-- My Content Section -->
+    <section
+      id="content"
+      class="py-6 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+      >
+        My Content
+      </h3>
+      <div
+        class="flex flex-row space-x-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scroll-smooth"
+      >
+        <div
+          class="p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?si=B9X9GXMtcHaZ-BjD&list=PLw2fgd5qgno1m_lqtpnaRfCfaiu3O0XzO"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="w-full h-64 rounded-lg"
+          ></iframe>
+          <h4 class="font-bold text-xl mb-2">Analytical Skill Concepts</h4>
+          <p class="text-gray-700"></p>
+        </div>
+        <div
+          class="p-4 rounded-lg shadow-lg card-hover transition-all duration-300 flex-shrink-0 animate-slide-up"
+        >
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?si=41iLPRAvEyfCdj1q&list=PLw2fgd5qgno1_y5BQjuH3tqLo798gjxxL"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="w-full h-64 rounded-lg"
+          ></iframe>
+          <h4 class="font-bold text-xl mb-2">Analytical Skill Lectures</h4>
+          <p class="text-gray-700"></p>
+        </div>
+      </div>
+    </section>
 
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // Stop observing once animated
+    <!-- About Section -->
+    <section
+      id="about"
+      class="scroll-mt-20 py-10 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <h3
+        class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+      >
+        Who Am I?
+      </h3>
+      <div class="max-w-4xl mx-auto space-y-4 text-lg text-justify">
+        <p class="animate-slide-up">
+          I am a dedicated software developer and designer with a strong focus
+          on crafting innovative, user-centric digital solutions. My expertise
+          spans web and mobile application development, where I leverage a
+          diverse set of programming languages and frameworks to deliver
+          high-quality results. I am committed to embracing emerging
+          technologies and continuously advancing my skill set to create
+          impactful digital experiences.
+        </p>
+        <p class="animate-slide-up" style="animation-delay: 0.2s">
+          Collaboration is at the core of my approach, and I thrive in dynamic
+          team environments where knowledge-sharing drives success. Beyond
+          coding, I stay engaged with the latest design trends, contribute to
+          content creation, and enjoy exploring new creative outlets.
+        </p>
+        <p class="animate-slide-up" style="animation-delay: 0.6s">
+          Currently, I am involved in several innovative projects and am open to
+          freelance opportunities. I also run a YouTube channel, where I share
+          valuable insights, tutorials, and tips on technology, design, and
+          development. I believe in the power of knowledge-sharing and strive to
+          make learning accessible and enjoyable for everyone.
+        </p>
+        <p class="animate-slide-up" style="animation-delay: 0.8s">
+          I am passionate about using technology to solve real-world problems
+          and am always eager to learn and adapt to new challenges. My goal is
+          to create solutions that not only meet user needs but also inspire and
+          empower them.
+        </p>
+        <p class="animate-slide-up" style="animation-delay: 1s">
+          I am eager to connect with like-minded professionals for potential
+          collaborations or discussions. Please feel free to reach out to
+          explore opportunities or to learn more about my work.
+        </p>
+
+        <h4
+          class="font-semibold text-xl md:text-2xl mb-2 animate-slide-up"
+          style="animation-delay: 1.4s"
+        >
+          Currently at:
+          <p class="font-normal text-base">
+            Lovely Professional University, Punjab
+          </p>
+          <p class="font-normal text-base">2nd year, CSE</p>
+        </h4>
+        <h4
+          class="font-semibold text-xl md:text-2xl animate-slide-up"
+          style="animation-delay: 1.6s"
+        >
+          I am from:
+          <p class="font-normal text-base">Sasaram, Bihar</p>
+        </h4>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="scroll-mt-20 py-16 px-4 md:px-6 my-6 transition-colors duration-700"
+    >
+      <div class="max-w-4xl mx-auto">
+        <h3
+          class="text-3xl md:text-4xl font-semibold mb-6 text-center animate-slide-up"
+        >
+          Get in Touch
+        </h3>
+        <p class="mb-4 text-center text-gray-700 animate-slide-up">
+          Want to collaborate or just say hi? Reach out!
+        </p>
+        <div class="space-y-2 text-center">
+          <p class="animate-slide-up">
+            <strong class=" ">LinkedIn: </strong>
+            <a
+              href="https://linkedin.com/in/vaibhav5860"
+              class="text-blue-500 hover:underline"
+              >Vaibhav Raj</a
+            >
+          </p>
+          <p class="animate-slide-up">
+            <strong class=" ">GitHub: </strong>
+            <a
+              href="https://github.com/Vaibhav5860"
+              class="text-blue-500 hover:underline"
+              >Vaibhav Raj</a
+            >
+          </p>
+          <p class="animate-slide-up">
+            <strong class=" ">Email: </strong
+            ><a
+              href="mailto:5860vaibhav@gmail.com"
+              class="text-blue-500 hover:underline"
+              >5860vaibhav@gmail.com</a
+            >
+          </p>
+          <p class="animate-slide-up">
+            <strong class=" ">WhatsApp: </strong>
+            <a
+              href="https://wa.me/919708681252"
+              class="text-blue-500 hover:underline"
+              >+91 9708681252</a
+            >
+          </p>
+          <p class="animate-slide-up">
+            <strong class="">Instagram: </strong>
+            <a
+              href="https://www.instagram.com/vaibhavraj23076"
+              class="text-blue-500 hover:underline"
+              >vaibhavraj23076</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="text-center py-6 text-sm text-gray-500 bg-gray-200 transition-colors duration-700"
+    >
+      © 2025 Vaibhav Raj. All rights reserved.
+    </footer>
+
+    <script>
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          const hamburgerIcon = document.getElementById("hamburger-icon");
+          mobileMenu.classList.toggle("hidden");
+          if (mobileMenu.classList.contains("hidden")) {
+            hamburgerIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+          } else {
+            hamburgerIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
           }
         });
-      },
-      { threshold: 0.1 }
-    );
+      const themeIcons = document.getElementsByClassName("theme-icon");
+      const body = document.body;
 
-    document
-      .querySelectorAll(
-        ".animate-fade-in-left, .animate-fade-in-right, .animate-bounce-in, .animate-slide-left, .animate-slide-up"
-      )
-      .forEach((element) => {
-        observer.observe(element);
-      });
-  </script>
-</body>
+      // Set initial theme based on localStorage
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.remove("light-theme");
+        body.classList.add("dark-theme");
+        for (let icon of themeIcons) {
+          icon.src = "image/night.png";
+        }
+      } else {
+        body.classList.remove("dark-theme");
+        body.classList.add("light-theme");
+        for (let icon of themeIcons) {
+          icon.src = "image/day.png";
+        }
+      }
 
+      // Add click event listener to all icons
+      for (let icon of themeIcons) {
+        icon.addEventListener("click", () => {
+          if (body.classList.contains("light-theme")) {
+            body.classList.remove("light-theme");
+            body.classList.add("dark-theme");
+            for (let icon of themeIcons) {
+              icon.src = "image/night.png";
+            }
+            localStorage.setItem("theme", "dark");
+          } else {
+            body.classList.remove("dark-theme");
+            body.classList.add("light-theme");
+            for (let icon of themeIcons) {
+              icon.src = "image/day.png";
+            }
+            localStorage.setItem("theme", "light");
+          }
+        });
+      }
+
+      // Intersection Observer for scroll animations
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // Stop observing once animated
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(
+          ".animate-fade-in-left, .animate-fade-in-right, .animate-bounce-in, .animate-slide-left, .animate-slide-up"
+        )
+        .forEach((element) => {
+          observer.observe(element);
+        });
+    </script>
+  </body>
 </html>
