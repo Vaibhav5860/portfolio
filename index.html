@@ -347,7 +347,7 @@
       id="heroSection"
       class="flex flex-col md:flex-row items-center text-center mx-auto p-6 md:p-20 mt-20 justify-around bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-lg animate-bounce-in"
     >
-      <div class="animate-fade-in-left">
+      <div class="">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-yellow-300">
           Hi, I'm Vaibhav 👋
         </h2>
@@ -360,7 +360,7 @@
           >Let's Connect</a
         >
       </div>
-      <div class="mt-6 md:mt-0 animate-fade-in-right">
+      <div class="mt-6 md:mt-0 ">
         <div class="profile-circle">
           <img
             src="image/profile-img.jpg"
@@ -897,13 +897,13 @@
           const mobileMenu = document.getElementById("mobile-menu");
           const hamburgerIcon = document.getElementById("hamburger-icon");
           mobileMenu.classList.toggle("hidden");
-          // if (mobileMenu.classList.contains("hidden")) {
-          //   hamburgerIcon.innerHTML =
-          //     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7"></path>';
-          // } else {
-          //   hamburgerIcon.innerHTML =
-          //     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>';
-          // }
+          if (mobileMenu.classList.contains("hidden")) {
+            hamburgerIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7"></path>';
+          } else {
+            hamburgerIcon.innerHTML =
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>';
+          }
         });
       const themeIcons = document.getElementsByClassName("theme-icon");
       const body = document.body;
